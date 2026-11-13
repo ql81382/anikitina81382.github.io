@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Assignment 12 - JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Assignment 12 - JavaScript</h1>
+
+    <h2>Name</h2>
+    <p id="name"></p>
+
+    <h2>Date and Time</h2>
+    <p id="dateTime"></p>
+
+    <h2>What I Learned</h2>
+
+    <p id="demo">During this assignment, I learned how to use JavaScript to make web pages more interactive. I practiced displaying my name and the current date and time using JavaScript. I also learned how to use HTML5 canvas to write text and draw different shapes, including lines, circles, squares, and triangles. These activities helped me understand how HTML, CSS, and JavaScript work together. I can use these skills in the future to create more creative and interactive websites for personal projects or businesses.As a Graphic Arts and Web Design student,learning JavaScript will help me improve my web design skills.</p>
+    
+    <p>
+        <a href="index.html">Back to WEB110 Home</a>
+    </p>
+
+    <h2>Canvas Text</h2>
+
+    <canvas id="nameCanvas" width="360" height="240">
+        This text is displayed if your browser
+        does not support HTML5 Canvas.
+    </canvas>
+
+    <h2>Canvas Shapes</h2>
+
+    <canvas id="shapesCanvas" width="360" height="240">
+        This text is displayed if your browser
+        does not support HTML5 Canvas.
+    </canvas>
+
+<script>
+        document.getElementById("name").innerHTML = "<h2>Anna Nikitina</h2>";
+
+        const d = new Date();
+        document.getElementById("dateTime").innerHTML = d;
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "paragraph changed.";
+        }
+        
+        
+        // name canvas
+        var example1 = document.getElementById("nameCanvas");
+        var context1 = example1.getContext("2d");
+
+        context1.strokeStyle = "blue";
+        context1.fillStyle = "blue";
+
+        context1.font = "36px sans-serif";
+        context1.textAlign = "center";
+        context1.strokeText("Anna Nikitina", 180, 50);
+        context1.fillText("Anna Nikitina", 180, 50);
+
+        // shapes canvas
+        var example2 = document.getElementById("shapesCanvas");
+        var context2 = example2.getContext("2d");
+
+        
+        // line
+        context2.beginPath();
+        context2.strokeStyle = "black";
+        context2.lineWidth = 4;
+        context2.moveTo(30, 65);
+        context2.lineTo(290, 65);
+        context2.stroke();
+
+        
+        // circle
+        context2.beginPath();
+        context2.fillStyle = "red";
+        context2.arc(60, 140, 35, 0, 2 * Math.PI, false);
+        context2.fill();
+        context2.closePath();
+
+        // square
+        context2.beginPath();
+        context2.fillStyle = "green";
+        context2.fillRect(130, 105, 70, 70);
+        context2.closePath();
+
+        // triangle
+        context2.beginPath();
+        context2.fillStyle = "blue";
+        context2.moveTo(270, 105);
+        context2.lineTo(235, 175);
+        context2.lineTo(310, 175);
+        context2.fill();
+        context2.closePath();
+    </script>
+
+</body>
+</html>
